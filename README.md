@@ -1,43 +1,46 @@
-MODEL PERFORMANCE
 
-Deadlift Model
 
-Features: Age, Sex, Bodyweight, Squat, Bench
 
-Result: R2 Score 0.899 | RMSE 18.6 kg
 
-Squat Model
+# POWERLIFTING SYMMETRY AND PERFORMANCE PREDICTOR
 
-Features: Age, Sex, Bodyweight, Bench, Deadlift
+PROJECT OVERVIEW
+This project uses XGBoost Regression to analyze powerlifting performance data from the OpenPowerlifting dataset. The goal is to predict any one of the three primary lifts (Squat, Bench Press, or Deadlift) by using the other two lifts, Age, Sex, and Bodyweight as inputs. This allows for the identification of strength outliers and "Symmetry Gaps" in a lifter's profile. Note that the dataset uses Tested, Raw lifters in full meets.
 
-Result: R2 Score 0.910 | RMSE 17.2 kg
 
-Bench Model
 
-Features: Age, Sex, Bodyweight, Squat, Deadlift
+## MODEL PERFORMANCE
 
-Result: R2 Score 0.884 | RMSE 14.2 kg
+1. DEADLIFT MODEL
+Inputs: Age, Sex, Bodyweight, Squat, Bench
+Accuracy: R2 Score 0.899 | RMSE 18.6 kg
+2. SQUAT MODEL
+Inputs: Age, Sex, Bodyweight, Bench, Deadlift
+Accuracy: R2 Score 0.910 | RMSE 17.2 kg
+3. BENCH MODEL
+Inputs: Age, Sex, Bodyweight, Squat, Deadlift
+Accuracy: R2 Score 0.884 | RMSE 14.2 kg
 
-KEY INSIGHTS
 
-Feature importance analysis shows that Age has a significantly higher impact on Bench Press predictions compared to the Squat or Deadlift.
+## KEY INSIGHTS
 
-The models successfully identify specialists. For example, a lifter with an elite deadlift relative to their squat will show a high "Symmetry Gap," marking them as a specialized outlier rather than a balanced lifter.
+* AGE SENSITIVITY: Feature importance analysis shows that Age has a significantly higher impact on Bench Press predictions compared to the Squat or Deadlift..
 
-SETUP AND INSTALLATION
 
-Requirements: Python (pandas, xgboost, scikit-learn, matplotlib).
+## SETUP AND INSTALLATION
 
-Data: Download the CSV from OpenPowerlifting.org. Save it in the same directory as the notebook and name it "openpowerlifting.csv".
+1. REQUIREMENTS: Python installed with pandas, xgboost, scikit-learn, and matplotlib.
+2. DATA: Download the CSV from OpenPowerlifting.org. Save it in the same directory as the notebook and name it "openpowerlifting.csv".
+3. EXECUTION: Run the Jupyter Notebook cells to clean the data and train the models. The final cell provides an interactive loop for personal strength predictions.
 
-Execution: Run the Jupyter Notebook cells to clean the data and train the models.
+USAGE:
+Input your Age, Sex (1 for Male, 0 for Female), Bodyweight, and two known lifts to receive a predicted value for your third lift.
 
-USAGE Use the interactive loop in the final cell of the notebook. Input your Age, Sex (1 for Male, 0 for Female), Bodyweight, and two known lifts to receive a predicted value for your third lift.
-
-PROJECT STRUCTURE
+PROJECT STRUCTURE:
 
 Powerlifting_Analysis.ipynb: Main notebook for training and inference.
+README.md: Project documentation.
 
-README.txt: Project documentation.
+LICENSE:
+This project is open-source and available under the MIT License.
 
-LICENSE This project is open-source and available under the MIT License.
