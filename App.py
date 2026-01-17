@@ -41,7 +41,7 @@ if category== "Deadlift" :
         with st.container(border=True):
             value=round((dlift*100/pred),2)
             st.write(f'Performance Analysis')
-            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(dlift-pred:.2f} Kg')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(dlift-pred):.2f} Kg')
         if value>=100:
             st.success(f"Well done your Deadlift is truly magnificient")
         elif value<=80:
@@ -95,6 +95,7 @@ else:
 
 
     
+
 
 
 
