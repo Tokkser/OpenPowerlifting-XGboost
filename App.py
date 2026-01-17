@@ -59,6 +59,18 @@ else:
         st.success(f"Estimated Bench: {pred:.1f} kg")
         st.progress(float(min(pred / 360.0, 1.0)),text=f'That is {(pred/3.60):.2f} % of the world record')
         st.write(f'Your actual Bench Press is :red[{(bpc*100/pred):.2f}%] of your predicted Bench Press ')
+        with st.container(border=True):
+            value=round((bpc*100/pred),2)
+            st.write(f'Performance Analysis')
+            st.metric('Actual Performance vs Estimated Performance', f'{value} %',(value-100))
+        if value>=100:
+            st.success(f'Well done youre Bench Press is truly magnificient')
+        elif value<=80:
+            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+        else:
+            st.success(f'Keep it up!')
+            
+        
 
 
     
@@ -66,6 +78,7 @@ else:
 
 
     
+
 
 
 
