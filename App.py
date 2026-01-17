@@ -36,7 +36,7 @@ if category== "Deadlift" :
         data=pd.DataFrame([[age, sexval, bw, sq, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float)
         pred= dl_model.predict(data)[0]
         st.success(f'Estimated deadlift: {pred:.1f} kg')
-        st.progress(float(min(pred / 400.0, 1.0)),text=f'That is {pred/5.20} % of the world record')
+        st.progress(float(min(pred / 510.0, 1.0)),text=f'That is {(pred/5.10):.2f} % of the world record')
 elif category== "Squat" :
     dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0)
     bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0)
@@ -44,7 +44,7 @@ elif category== "Squat" :
         data=pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float)
         pred= sq_model.predict(data)[0]
         st.success(f'Estimated Squat: {pred:.1f} kg')
-        st.progress(float(min(pred / 400.0, 1.0)),text=f'That is {pred/4.90} % of the world record')
+        st.progress(float(min(pred / 490.0, 1.0)),text=f'That is {(pred/4.90):.2f} % of the world record')
 else: 
     sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0)
     dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0, step=5.0)
@@ -52,7 +52,7 @@ else:
         data = pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float)
         pred = bp_model.predict(data)[0]
         st.success(f"Estimated Bench: {pred:.1f} kg")
-        st.progress(float(min(pred / 400.0, 1.0)),text=f'That is {pred/3.60} % of the world record')
+        st.progress(float(min(pred / 360.0, 1.0)),text=f'That is {(pred/3.60):.2f} % of the world record')
 
 
     
@@ -60,6 +60,7 @@ else:
 
 
     
+
 
 
 
