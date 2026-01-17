@@ -45,7 +45,7 @@ if category== "Deadlift" :
         if value>=100:
             st.success(f"Well done your Deadlift is truly magnificient")
         elif value<=80:
-            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+            st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
         else:
             st.success(f'Keep it up!')
 elif category== "Squat" :
@@ -64,7 +64,7 @@ elif category== "Squat" :
         if value>=100:
             st.success(f"Well done your Squat is truly magnificient")
         elif value<=80:
-            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+            st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
         else:
             st.success(f'Keep it up!')
 else: 
@@ -83,7 +83,7 @@ else:
         if value>=100:
             st.success(f"Well done your Bench Press is truly magnificient")
         elif value<=80:
-            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+            st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
         else:
             st.success(f'Keep it up!')
             
@@ -95,6 +95,7 @@ else:
 
 
     
+
 
 
 
