@@ -62,9 +62,9 @@ else:
         with st.container(border=True):
             value=round((bpc*100/pred),2)
             st.write(f'Performance Analysis')
-            st.metric('Actual Performance vs Estimated Performance', f'{value} %',(value-100))
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
         if value>=100:
-            st.success(f'Well done youre Bench Press is truly magnificient')
+            st.success(f"Well done you're Bench Press is truly magnificient")
         elif value<=80:
             st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
         else:
@@ -78,6 +78,7 @@ else:
 
 
     
+
 
 
 
