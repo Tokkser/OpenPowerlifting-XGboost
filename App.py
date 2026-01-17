@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import xgboost as xgb
+st.set_page_config(page_title="PR Predictor", page_icon="🏋️‍♂️", layout="centered")
 st.markdown("""
     <style>
     .main { background-color: #f5f7f9; }
@@ -9,6 +10,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 st.title("Powerlifting performance predictor")
+st.write("Enter your stats below to estimate your maximum potential lift.")
 @st.cache_resource
 def loadmodels():
     m1=xgb.XGBRegressor()
@@ -33,14 +35,14 @@ if category== "Deadlift" :
     if st.button("Predict Deadlift"):
         data=pd.DataFrame([[age, sexval, bw, sq, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float)
         pred= dl_model.predict(data)[0]
-        st.success(f'estimated deadlift: {pred:.1f} kg')
+        st.success(f'Estimated deadlift: {pred:.1f} kg')
 elif category== "Squat" :
     dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0)
     bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0)
     if st.button("Predict Squat"):
         data=pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float)
         pred= sq_model.predict(data)[0]
-        st.success(f'estimated Squat: {pred:.1f} kg')
+        st.success(f'Estimated Squat: {pred:.1f} kg')
 else: 
     sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0)
     dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0, step=5.0)
@@ -48,12 +50,14 @@ else:
         data = pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float)
         pred = bp_model.predict(data)[0]
         st.success(f"Estimated Bench: {pred:.1f} kg")
-        
+
+st.progress(min(pred / 400.0, 1.0))
     
 
 
 
     
+
 
 
 
