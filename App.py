@@ -38,7 +38,16 @@ if category== "Deadlift" :
         pred= dl_model.predict(data)[0]
         st.success(f'Estimated deadlift: {pred:.1f} kg')
         st.progress(float(min(pred / 510.0, 1.0)),text=f'That is {(pred/5.10):.2f} % of the world record')
-        st.write(f'Your actual deadlift is :red[{(dlift*100/pred):.2f}%] of your predicted deadlift ')
+        with st.container(border=True):
+            value=round((dlift*100/pred),2)
+            st.write(f'Performance Analysis')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
+        if value>=100:
+            st.success(f"Well done your Deadlift is truly magnificient")
+        elif value<=80:
+            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+        else:
+            st.success(f'Keep it up!')
 elif category== "Squat" :
     dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0)
     bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0)
@@ -48,7 +57,16 @@ elif category== "Squat" :
         pred= sq_model.predict(data)[0]
         st.success(f'Estimated Squat: {pred:.1f} kg')
         st.progress(float(min(pred / 490.0, 1.0)),text=f'That is {(pred/4.90):.2f} % of the world record')
-        st.write(f'Your actual Squat is :red[{(sqt*100/pred):.2f}%] of your predicted Squat ')
+        with st.container(border=True):
+            value=round((sqt*100/pred),2)
+            st.write(f'Performance Analysis')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
+        if value>=100:
+            st.success(f"Well done your Squat is truly magnificient")
+        elif value<=80:
+            st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
+        else:
+            st.success(f'Keep it up!')
 else: 
     sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0)
     dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0, step=5.0)
@@ -58,13 +76,12 @@ else:
         pred = bp_model.predict(data)[0]
         st.success(f"Estimated Bench: {pred:.1f} kg")
         st.progress(float(min(pred / 360.0, 1.0)),text=f'That is {(pred/3.60):.2f} % of the world record')
-        st.write(f'Your actual Bench Press is :red[{(bpc*100/pred):.2f}%] of your predicted Bench Press ')
         with st.container(border=True):
             value=round((bpc*100/pred),2)
             st.write(f'Performance Analysis')
             st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
         if value>=100:
-            st.success(f"Well done you're Bench Press is truly magnificient")
+            st.success(f"Well done your Bench Press is truly magnificient")
         elif value<=80:
             st.success(f'Dissapointed?, perhaps your leverages are well suited for some other lift')
         else:
@@ -78,6 +95,7 @@ else:
 
 
     
+
 
 
 
