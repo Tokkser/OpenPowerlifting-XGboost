@@ -117,9 +117,9 @@ with tab2:
     sqt = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0)
     
     if st.button('Analyse my Leverages'):
-        dlpred= dl_model.predict(pd.DataFrame([[age, sexval, bw, sqt, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float))
-        sqpred= sq_model.predict(pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float))
-        bppred= bp_model.predict(pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float))
+        dlpred= dl_model.predict(pd.DataFrame([[age, sexval, bw, sqt, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float))[0]
+        sqpred= sq_model.predict(pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float))[0]
+        bppred= bp_model.predict(pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float))[0]
         dlratio=dl*100/dlpred
         sqratio=sqt*100/sqpred
         bpratio=bp*100/bppred
@@ -180,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
