@@ -158,14 +158,15 @@ with tab2:
                 st.header('The Short-Lever Powerhouse')
                 st.success('You are built to push weight. You excel at Squat and Bench, while Deadlift is your challenge.')
 
-        categ=['Deadlift','Squat','Bench Press']
-        rvalues=[dlratio,sqratio,bpratio,dlratio]
-        theta = categ+ [categ[0]]
-        fig=go.Figure()
-        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,name='The Performance Profile',fill='toself',marker=dict(color='green',size=1)))
-        fig.update_layout(polar=dict(radialaxis=dict(visible=True,range=[0,max(rvalues)+10])),showlegend=False,title='Performance chart')
+        categ = ['Deadlift', 'Squat', 'Bench Press']
+        rvalues = [float(dlratio), float(sqratio), float(bpratio), float(dlratio)]
+        baseline = [100, 100, 100, 100]
+        theta = categ + [categ[0]]
+        fig = go.Figure()
+        fig.add_trace(go.Scatterpolar(r=baseline,theta=theta,fill='none',name='Average Potential',line=dict(color='gray', dash='dash')))
+        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,fill='toself',name='Your Profile',line=dict(color='green'),marker=dict(size=8)))
+        fig.update_layout(polar=dict(radialaxis=dict(visible=True,range=[0, max(max(rvalues), 110) + 10],tickfont=dict(size=10)),angularaxis=dict(tickfont=dict(size=12,  color='white'))),showlegend=True,title='Efficiency Analysis vs. Population Baseline')
         st.plotly_chart(fig)
-
                 
                 
 
@@ -179,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
