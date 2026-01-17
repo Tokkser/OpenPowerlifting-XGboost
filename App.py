@@ -32,7 +32,7 @@ bw = st.sidebar.number_input("Bodyweight (Kg): ",20.0,300.0,80.0, step= 1.0)
 if category== "Deadlift" :
     sq = st.number_input("Squat 1RM (Kg):", min_value=0.0, max_value=600.0, value=120.0, step=5.0)
     bp = st.number_input("Bench 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step= 5.0)
-    dlift= bp = st.number_input("Enter your actual deadlift:", min_value=0.0, max_value=510, value=100.0, step= 5.0)
+    dlift= bp = st.number_input("Enter your actual deadlift:", min_value=0.0, max_value=510.0, value=100.0, step= 5.0)
     if st.button("Predict Deadlift"):
         data=pd.DataFrame([[age, sexval, bw, sq, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float)
         pred= dl_model.predict(data)[0]
@@ -62,6 +62,7 @@ else:
 
 
     
+
 
 
 
