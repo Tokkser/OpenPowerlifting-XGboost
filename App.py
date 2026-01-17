@@ -16,7 +16,7 @@ dl_model,sq_model,bp_model=loadmodels()
 
 st.sidebar.header("Information")
 category= st.sidebar.selectbox("Estimate for:", ["Deadlift", "Squat", "Bench Press"])
-age= st.sidebar.number_input('Age', 8,100,21)
+age= st.sidebar.number_input('Age', 8.0,100.0,21.0)
 sex=st.sidebar.selectbox("Sex", ["Male","Female"])
 sexval= 1 if sex =="Male" else 2
 bw = st.sidebar.number_input("Bodyweight (Kg): ",20.0,300.0,80.0)
@@ -48,6 +48,7 @@ else:
 
 
     
+
 
 
 
