@@ -123,9 +123,9 @@ with tab2:
         dlratio=dl*100/dlpred
         sqratio=sqt*100/sqpred
         bpratio=bp*100/bppred
-        st.write(f'Your actual deadlift is :green[{(dlratio[0]):.2f}] % of the predicted value')
-        st.write(f'Your actual squat is :green[{(sqratio[0]):.2f}]% of the predicted value')
-        st.write(f'Your actual bench press is :green[{(bpratio[0]):.2f}]% of the predicted value')
+        st.write(f'Your actual deadlift is :green[{(dlratio):.2f}] % of the predicted value')
+        st.write(f'Your actual squat is :green[{(sqratio):.2f}]% of the predicted value')
+        st.write(f'Your actual bench press is :green[{(bpratio):.2f}]% of the predicted value')
         ratios={"Deadlift":dlratio,"Squat":sqratio,"Bench Press":bpratio}
         sortedlifts= sorted(ratios.items(), key= lambda x:x[1],reverse=True)
         max_lift,max_val= sortedlifts[0]
@@ -180,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
