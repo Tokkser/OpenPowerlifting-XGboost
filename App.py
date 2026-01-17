@@ -41,7 +41,7 @@ if category== "Deadlift" :
         with st.container(border=True):
             value=round((dlift*100/pred),2)
             st.write(f'Performance Analysis')
-            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(dlift-pred:.2f} Kg')
         if value>=100:
             st.success(f"Well done your Deadlift is truly magnificient")
         elif value<=80:
@@ -60,7 +60,7 @@ elif category== "Squat" :
         with st.container(border=True):
             value=round((sqt*100/pred),2)
             st.write(f'Performance Analysis')
-            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(sqt-pred):.2f} Kg')
         if value>=100:
             st.success(f"Well done your Squat is truly magnificient")
         elif value<=80:
@@ -79,7 +79,7 @@ else:
         with st.container(border=True):
             value=round((bpc*100/pred),2)
             st.write(f'Performance Analysis')
-            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(value-100):.2f}')
+            st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(bpc-pred):.2f} Kg')
         if value>=100:
             st.success(f"Well done your Bench Press is truly magnificient")
         elif value<=80:
@@ -95,6 +95,7 @@ else:
 
 
     
+
 
 
 
