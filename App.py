@@ -58,7 +58,7 @@ else:
         pred = bp_model.predict(data)[0]
         st.success(f"Estimated Bench: {pred:.1f} kg")
         st.progress(float(min(pred / 360.0, 1.0)),text=f'That is {(pred/3.60):.2f} % of the world record')
-        st.write(f'Your actual Bench Press is :red[{(sqt*100/pred):.2f}%] of your predicted Bench Press ')
+        st.write(f'Your actual Bench Press is :red[{(bpc*100/pred):.2f}%] of your predicted Bench Press ')
 
 
     
@@ -66,6 +66,7 @@ else:
 
 
     
+
 
 
 
