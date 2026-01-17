@@ -163,8 +163,7 @@ with tab2:
         baseline = [100, 100, 100, 100]
         theta = categ + [categ[0]]
         fig = go.Figure()
-        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,fill='toself',hovertemplate="<b>%{theta}</b><br>Efficiency: %{r:.2f}%<extra></extra>",name='Your Profile',line=dict(color='green'),marker=dict(size=8)))
-        fig.update_layout(polar=dict(radialaxis=dict(visible=True,range=[0, max(rvalues) + 10],tickfont=dict(size=10)),angularaxis=dict(tickfont=dict(size=12,  color='white'))),showlegend=True,title='Efficiency Analysis')
+        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,fill='toself',name='Your Profile',line=dict(color='green'),marker=dict(size=8)))
         st.plotly_chart(fig)
                 
                 
@@ -179,6 +178,7 @@ with tab2:
 
 
     
+
 
 
 
