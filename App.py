@@ -3,7 +3,7 @@ import pandas as pd
 import xgboost as xgb
 
 st.title("Powerlifting performance predictor")
-@st.cache_resources
+@st.cache_resource
 def loadmodels():
     m1=xgb.XGBRegressor()
     m1.load_model('deadlift_model.json')
@@ -44,6 +44,7 @@ else:
         st.success(f"Estimated Bench: {pred:.1f} kg")
         
     
+
 
 
     
