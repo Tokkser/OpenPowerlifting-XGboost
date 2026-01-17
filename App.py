@@ -22,22 +22,22 @@ sexval= 1 if sex =="Male" else 2
 bw = st.sidebar.number_input("Bodyweight (Kg): ",20.0,300.0,80.0)
 
 if category== "Deadlift" :
-    sq= st.number_input("Squat 1RM (Kg):",0.0,600.0,120.0)
-    bp= st.number_input("Squat 1RM (Kg):",0.0,370.0,100.0)
+    sq = st.number_input("Squat 1RM (Kg):", min_value=0.0, max_value=600.0, value=120.0)
+    bp = st.number_input("Bench 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0)
     if st.button("Predict Deadlift"):
         data=pd.DataFrame([[age, sexval, bw, sq, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float)
         pred= dl_model.predict(data)[0]
         st.success(f'estimated deadlift: {pred:.1f} kg')
 elif category== "Squat" :
-    dl= st.number_input("Deadlift 1RM (Kg):",0.0,520.0,140.0)
-    bp= st.number_input("Bench Press 1RM (Kg):",0,370.0,100.0)
+    dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0)
+    bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0)
     if st.button("Predict Squat"):
         data=pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float)
         pred= sq_model.predict(data)[0]
         st.success(f'estimated Squat: {pred:.1f} kg')
 else: 
-    sq = st.number_input("Squat 1RM (kg)", 0.0, 500.0, 120.0)
-    dl = st.number_input("Deadlift 1RM (kg)", 0.0, 500.0, 150.0)
+    sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0)
+    dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0)
     if st.button("Predict Bench"):
         data = pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float)
         pred = bp_model.predict(data)[0]
@@ -48,6 +48,7 @@ else:
 
 
     
+
 
 
 
