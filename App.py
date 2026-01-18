@@ -34,9 +34,9 @@ with tab1:
 
 
     if category== "Deadlift" :
-        sq = st.number_input("Squat 1RM (Kg):", min_value=0.0, max_value=600.0, value=120.0, step=5.0,key='dltab1')
-        bp = st.number_input("Bench 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step= 5.0,key='dltab1')
-        dlift= st.number_input("Enter your actual deadlift:", min_value=0.0, max_value=510.0, value=100.0, step= 5.0,key='dltab1')
+        sq = st.number_input("Squat 1RM (Kg):", min_value=0.0, max_value=600.0, value=120.0, step=5.0,key='sqtab1')
+        bp = st.number_input("Bench 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step= 5.0,key='bptab1')
+        dlift= st.number_input("Enter your actual deadlift:", min_value=0.0, max_value=510.0, value=100.0, step= 5.0,key='dl1')
         if st.button("Predict Deadlift"):
             data=pd.DataFrame([[age, sexval, bw, sq, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float)
             pred= dl_model.predict(data)[0]
@@ -53,9 +53,9 @@ with tab1:
             else:
                 st.success(f'Keep it up!')
     elif category== "Squat" :
-        dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0,key='dltab1')
-        bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0,key='dltab1')
-        sqt = st.number_input("Enter your Actual Squat (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0,key='dltab1')
+        dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0,key='dl2')
+        bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0,key='bp2')
+        sqt = st.number_input("Enter your Actual Squat (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0,key='sq2')
         if st.button("Predict Squat"):
             data=pd.DataFrame([[age, sexval, bw, bp, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3BenchKg', 'Best3DeadliftKg']).astype(float)
             pred= sq_model.predict(data)[0]
@@ -72,9 +72,9 @@ with tab1:
             else:
                 st.success(f'Keep it up!')
     else: 
-        sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0,key='dltab1')
-        dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0, step=5.0,key='dltab1')
-        bpc= st.number_input("Enter your Actual Bench Press (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0,key='dltab1')
+        sq = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0,key='sq3')
+        dl = st.number_input("Deadlift 1RM (kg)", min_value=0.0, max_value=500.0, value=150.0, step=5.0,key='dl4')
+        bpc= st.number_input("Enter your Actual Bench Press (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0,key='bp5')
         if st.button("Predict Bench"):
             data = pd.DataFrame([[age, sexval, bw, sq, dl]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3DeadliftKg']).astype(float)
             pred = bp_model.predict(data)[0]
@@ -180,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
