@@ -2,7 +2,7 @@
 
 
 
-# POWERLIFTING SYMMETRY AND PERFORMANCE PREDICTOR
+# POWERLIFTING PERFORMANCE PREDICTOR
 
 This project uses XGBoost Regression to analyze powerlifting performance data from the OpenPowerlifting dataset. The goal is to predict any one of the three primary lifts (Squat, Bench Press, or Deadlift) by using the other two lifts, Age, Sex, and Bodyweight as inputs. This allows for the identification of strength outliers and "Symmetry Gaps" in a lifter's profile. Note that the dataset uses Tested, Raw lifters in full meets.
 
