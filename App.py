@@ -123,24 +123,11 @@ with tab2:
         dlratio=dl*100/dlpred
         sqratio=sqt*100/sqpred
         bpratio=bp*100/bppred
-        if dlratio>100: 
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: green; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Deadlift is Greater than the Predicted Deadlift by',f'{(dlratio-100):.2f} %')
-        else:
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: red; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Deadlift is less than the Predicted Deadlift by',f'{(100-dlratio):.2f} %')
-        if sqratio>100: 
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: green; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Squat is Greater than the Predicted Squat by',f'{(sqratio-100):.2f} %')
-        else:
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: red; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Squat is less than the Predicted Squat by',f'{(100-sqratio):.2f} %')
-        if bpratio>100:
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: green; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Bench is Greater than the Predicted Bench by',f'{(bpratio-100):.2f} %')
-        else:
-            st.markdown(f"""<style>[data-testid="stMetricValue"] {{color: red; }} </style> """, unsafe_allow_html=True)
-            st.metric(f'Actual Bench is less than the Predicted Bench by',f'{(100-bpratio):.2f} %')
+    
+        st.metric(f'Actual Deadlift vs Predicted Deadlift',f'{(dlratio-100):.2f} %')
+        st.metric(f'Actual Squat vs Predicted Squat',f'{(sqratio-100):.2f} %')
+        st.metric(f'Actual Bench vs Predicted Bench',f'{(bpratio-100):.2f} %')
+
         ratios={"Deadlift":dlratio,"Squat":sqratio,"Bench Press":bpratio}
         sortedlifts= sorted(ratios.items(), key= lambda x:x[1],reverse=True)
         max_lift,max_val= sortedlifts[0]
@@ -193,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
