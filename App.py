@@ -48,7 +48,7 @@ with tab1:
                 st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(dlift-pred):.2f} Kg')
             if value>=100:
                 st.success(f"Well done your Deadlift is truly magnificient")
-            elif value<=80:
+            elif value<=88:
                 st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
             else:
                 st.success(f'Keep it up!')
@@ -67,7 +67,7 @@ with tab1:
                 st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(sqt-pred):.2f} Kg')
             if value>=100:
                 st.success(f"Well done your Squat is truly magnificient")
-            elif value<=80:
+            elif value<=88:
                 st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
             else:
                 st.success(f'Keep it up!')
@@ -86,7 +86,7 @@ with tab1:
                 st.metric('Actual Performance vs Estimated Performance', f'{value:.2f} %',f'{(bpc-pred):.2f} Kg')
             if value>=100:
                 st.success(f"Well done your Bench Press is truly magnificient")
-            elif value<=80:
+            elif value<=88:
                 st.success(f'Dissapointed?, Perhaps your leverages are well suited for some other lift')
             else:
                 st.success(f'Keep it up!')
@@ -181,6 +181,7 @@ with tab2:
 
 
     
+
 
 
 
