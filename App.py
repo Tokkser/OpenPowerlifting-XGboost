@@ -112,9 +112,9 @@ with tab2:
         m3.load_model('bench_model.json')
         return m1,m2,m3
     dl_model,sq_model,bp_model=loadmodels()
-    dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0)
-    bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0)
-    sqt = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0)
+    dl = st.number_input("Deadlift 1RM (Kg):", min_value=0.0, max_value=520.0, value=140.0, step=5.0,key='dl10')
+    bp = st.number_input("Bench Press 1RM (Kg):", min_value=0.0, max_value=370.0, value=100.0, step=5.0,key='bp10')
+    sqt = st.number_input("Squat 1RM (kg)", min_value=0.0, max_value=500.0, value=120.0, step=5.0,key='sqt10')
     
     if st.button('Analyse my Leverages'):
         dlpred= dl_model.predict(pd.DataFrame([[age, sexval, bw, sqt, bp]], columns=['Age', 'Sex', 'BodyweightKg', 'Best3SquatKg', 'Best3BenchKg']).astype(float))[0]
@@ -181,6 +181,7 @@ with tab2:
 
 
     
+
 
 
 
