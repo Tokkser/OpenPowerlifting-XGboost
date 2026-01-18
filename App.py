@@ -164,8 +164,8 @@ with tab2:
         rvalues = [float(dlratio), float(sqratio), float(bpratio), float(dlratio)]
         theta = categ + [categ[0]]
         fig = go.Figure()
-        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,fill='toself',name='Your Profile',line=dict(color='green'),marker=dict(size=8)))
         fig.add_trace(go.Scatterpolar(r=[100,100,100,100], theta=theta, fill='toself', name= 'Expected Baseline',line=dict(color='LightSkyBlue'),marker=dict(size=8)))
+        fig.add_trace(go.Scatterpolar(r=rvalues,theta=theta,fill='toself',name='Your Profile',line=dict(color='green'),marker=dict(size=8)))
         fig.update_layout(showlegend=True)
         st.plotly_chart(fig)
                 
@@ -181,6 +181,7 @@ with tab2:
 
 
     
+
 
 
 
