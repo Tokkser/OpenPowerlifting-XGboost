@@ -124,9 +124,9 @@ with tab2:
         sqratio=sqt*100/sqpred
         bpratio=bp*100/bppred
     
-        st.metric(f'Actual Deadlift vs Predicted Deadlift',f'{(dlratio-100):.2f} %')
-        st.metric(f'Actual Squat vs Predicted Squat',f'{(sqratio-100):.2f} %')
-        st.metric(f'Actual Bench vs Predicted Bench',f'{(bpratio-100):.2f} %')
+        st.metric(f'Actual Deadlift vs Predicted Deadlift',f'{(dlratio-100):.2f} %',f'{-1*(dlpred-dl):.2f} Kg')
+        st.metric(f'Actual Squat vs Predicted Squat',f'{(sqratio-100):.2f} %',f'{-1*(sqpred-sqt):.2f} Kg')
+        st.metric(f'Actual Bench vs Predicted Bench',f'{(bpratio-100):.2f} %',f'{-1*(bppred-bp):.2f} Kg')
 
         ratios={"Deadlift":dlratio,"Squat":sqratio,"Bench Press":bpratio}
         sortedlifts= sorted(ratios.items(), key= lambda x:x[1],reverse=True)
@@ -180,6 +180,7 @@ with tab2:
 
 
     
+
 
 
 
