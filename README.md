@@ -1,53 +1,64 @@
+# Powerlifting Performance Predictor
 
+XGBoost-based regression models trained on the OpenPowerlifting dataset to predict any one of the three primary lifts — Squat, Bench Press, or Deadlift — from the other two, plus Age, Sex, and Bodyweight. Useful for identifying strength outliers and symmetry gaps in a lifter's profile.
 
+> Dataset scope: Tested, Raw lifters in full meets (SBD).
 
+---
 
-# POWERLIFTING PERFORMANCE PREDICTOR
+## Model Performance
 
-This project uses XGBoost Regression to analyze powerlifting performance data from the OpenPowerlifting dataset. The goal is to predict any one of the three primary lifts (Squat, Bench Press, or Deadlift) by using the other two lifts, Age, Sex, and Bodyweight as inputs. This allows for the identification of strength outliers and "Symmetry Gaps" in a lifter's profile. Note that the dataset uses Tested, Raw lifters in full meets.
+| Model     | Inputs                              | R² Score | RMSE     |
+|-----------|-------------------------------------|----------|----------|
+| Deadlift  | Age, Sex, Bodyweight, Squat, Bench  | 0.899    | 18.6 kg  |
+| Squat     | Age, Sex, Bodyweight, Bench, Deadlift | 0.910  | 17.2 kg  |
+| Bench     | Age, Sex, Bodyweight, Squat, Deadlift | 0.884  | 14.2 kg  |
 
+---
 
+## Key Insights
 
-## MODEL PERFORMANCE
+- **Age sensitivity:** Feature importance analysis shows Age has a significantly higher impact on Bench Press predictions relative to Squat or Deadlift.
 
-* DEADLIFT MODEL
+---
 
-Inputs: Age, Sex, Bodyweight, Squat, Bench
+## Setup
 
-Accuracy: R2 Score 0.899 | RMSE 18.6 kg
+### Requirements
 
-* SQUAT MODEL
-   
-Inputs: Age, Sex, Bodyweight, Bench, Deadlift
+```bash
+pip install pandas xgboost scikit-learn matplotlib
+```
 
-Accuracy: R2 Score 0.910 | RMSE 17.2 kg
+### Data
 
-* BENCH MODEL
-   
-Inputs: Age, Sex, Bodyweight, Squat, Deadlift
+1. Download the dataset from Kaggle: [OpenPowerlifting · Aleksey Bilogur](https://www.kaggle.com/datasets/open-powerlifting/powerlifting-database)
+2. Save the CSV in the same directory as the notebook and rename it `openpowerlifting.csv`
 
-Accuracy: R2 Score 0.884 | RMSE 14.2 kg
+### Running
 
+Open and run all cells in the Jupyter notebook. The final cell launches an interactive loop for personal lift predictions.
 
-## KEY INSIGHTS
+---
 
-* AGE SENSITIVITY: Feature importance analysis shows that Age has a significantly higher impact on Bench Press predictions compared to the Squat or Deadlift..
+## Usage
 
+```
+Input:  Age, Sex (1 = Male, 0 = Female), Bodyweight (kg), and two known lifts (kg)
+Output: Predicted value for your third lift (kg)
+```
 
-## SETUP AND INSTALLATION
+---
 
-1. REQUIREMENTS: Python installed with pandas, xgboost, scikit-learn, and matplotlib.
-2. DATA: Download the CSV from Kaggle (OpenPowerlifting · Aleksey Bilogur) Save it in the same directory as the notebook and name it "openpowerlifting.csv".
-3. EXECUTION: Run the Jupyter Notebook cells to clean the data and train the models. The final cell provides an interactive loop for personal strength predictions.
+## Project Structure
 
-USAGE:
-Input your Age, Sex (1 for Male, 0 for Female), Bodyweight, and two known lifts to receive a predicted value for your third lift.
+```
+├── OpenPowerlifting (Tested, Raw, SBD)-Copy1.ipynb   # Main notebook
+└── README.md                                          # Documentation
+```
 
-PROJECT STRUCTURE:
+---
 
-OpenPowerlifting (Tested, Raw, SBD)-Copy1.ipynb: Main notebook for training and inference.
-README.md: Project documentation.
+## License
 
-LICENSE:
-This project is open-source and available under the MIT License.
-
+MIT License — open source, free to use and modify.
